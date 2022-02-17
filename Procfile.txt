@@ -1,1 +1,1 @@
-web: gunicorn PLENTINA_ML_CHALLENGE:app--logfile-
+web: gunicorn PLENTINA_ML_CHALLENGE:app --logfile -
