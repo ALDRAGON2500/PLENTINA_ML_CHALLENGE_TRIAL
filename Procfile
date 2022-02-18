@@ -1,1 +1,1 @@
-web: gunicorn PLENTINA_ML_CHALLENGE:app
+web:gunicorn PLENTINA_ML_CHALLENGE:app
