@@ -122,6 +122,11 @@ def fraud_detection():
     select_choice=str(np.where(model.predict(y_pred.values)==1,"true","false")[0])
     return {'isFraud':select_choice}
 
+@app.route('/is-corn', methods = ['GET'])
+
+def corn_detection():
+    return {'corny':'butter corn'}
+
 
 
 if __name__=='__main__':
