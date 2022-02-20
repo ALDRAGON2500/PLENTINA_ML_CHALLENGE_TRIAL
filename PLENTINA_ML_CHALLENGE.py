@@ -10,6 +10,21 @@ api=Api(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://hrisnttmbmdsmp:fc6cb81d1be90ce5f775754b0dcf5c06736f1d5bbdcd6de9eb1e8be73d51c99f@ec2-34-233-157-9.compute-1.amazonaws.com:5432/dd6qanc1217v5j'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
+
+class transactions(db.Model):
+    step = db.Column(db.Integer, nullable=False)
+    type = db.Column(db.String, nullable=False)
+    amount = db.Column(db.Floaat, nullable=False)
+    nameOrig = db.Column(db.String, nullable=False)
+    oldbalanceOrig = db.Column(db.Float, nullable=False)
+    newbalanceOrig = db.Column(db.Float, nullable=False)
+    nameDest = db.Column(db.String, nullable=False)
+    oldbalanceDest = db.Column(db.Float, nullable=False)
+    newbalanceDest = db.Column(db.Float, nullable=False)
+    isFraud = db.Column(db.Integer, nullable=False)
+    def __repr__(self):
+        return f"transactions(step = {step}, type = {type}, amount = {amount},nameOrig = {nameOrig},oldbalanceOrig = {oldbalanceOrig},newbalanceOrig = {newbalanceOrig},nameDest = {nameDest},oldbalanceDest = {oldbalanceDest},newbalanceDest = {newbalanceDest},isFraud = {isFraud})"
+
 db.create_all()
 
 import pandas as pd 
@@ -101,7 +116,8 @@ def fraud_detection():
                             'newbalanceOrig':params['newbalanceOrig'],
                             'nameDest':params['nameDest'],
                             'oldbalanceDest':params['oldbalanceDest'],
-                            'newbalanceDest':params['newbalanceDest'],},index=[0])
+                            'newbalanceDest':params['newbalanceDest'],
+                            'isFraud':-1},index=[0])
     params_df.to_sql('transactions',con=db.engine, if_exists='append',index=False)
     
    
