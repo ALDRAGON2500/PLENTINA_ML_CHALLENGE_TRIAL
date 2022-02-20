@@ -7,7 +7,7 @@ from flask_sqlalchemy import SQLAlchemy
 app=Flask(__name__)
 api=Api(app)
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///PLENTINADB.db'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://hrisnttmbmdsmp:fc6cb81d1be90ce5f775754b0dcf5c06736f1d5bbdcd6de9eb1e8be73d51c99f@ec2-34-233-157-9.compute-1.amazonaws.com:5432/dd6qanc1217v5j''
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://hrisnttmbmdsmp:fc6cb81d1be90ce5f775754b0dcf5c06736f1d5bbdcd6de9eb1e8be73d51c99f@ec2-34-233-157-9.compute-1.amazonaws.com:5432/dd6qanc1217v5j'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
