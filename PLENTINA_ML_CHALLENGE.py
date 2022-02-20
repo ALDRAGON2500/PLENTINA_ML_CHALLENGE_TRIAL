@@ -10,6 +10,7 @@ api=Api(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://eoaanmphxbnuvp:f74035ddab268012f0e500dac515b0f749947c4261384285179ea3ea1abcc2ea@ec2-3-212-143-188.compute-1.amazonaws.com:5432/d4apbo7o7ts7rg'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
+db.create_all()
 
 #class transactions(db.Model):
 #    step = db.Column(db.Integer, nullable=False)
