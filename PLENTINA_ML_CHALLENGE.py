@@ -11,21 +11,27 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://hrisnttmbmdsmp:fc6cb81d1be
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
-class transactions(db.Model):
-    step = db.Column(db.Integer, nullable=False)
-    type = db.Column(db.String, nullable=False)
-    amount = db.Column(db.Float, nullable=False)
-    nameOrig = db.Column(db.String, nullable=False)
-    oldbalanceOrig = db.Column(db.Float, nullable=False)
-    newbalanceOrig = db.Column(db.Float, nullable=False)
-    nameDest = db.Column(db.String, nullable=False)
-    oldbalanceDest = db.Column(db.Float, nullable=False)
-    newbalanceDest = db.Column(db.Float, nullable=False)
-    isFraud = db.Column(db.Integer, nullable=False)
-    def __repr__(self):
-        return f"transactions(step = {step}, type = {type}, amount = {amount},nameOrig = {nameOrig},oldbalanceOrig = {oldbalanceOrig},newbalanceOrig = {newbalanceOrig},nameDest = {nameDest},oldbalanceDest = {oldbalanceDest},newbalanceDest = {newbalanceDest},isFraud = {isFraud})"
+#class transactions(db.Model):
+#    step = db.Column(db.Integer, nullable=False)
+#    type = db.Column(db.String, nullable=False)
+#    amount = db.Column(db.Float, nullable=False)
+#    nameOrig = db.Column(db.String, nullable=False)
+#    oldbalanceOrig = db.Column(db.Float, nullable=False)
+#    newbalanceOrig = db.Column(db.Float, nullable=False)
+#    nameDest = db.Column(db.String, nullable=False)
+#    oldbalanceDest = db.Column(db.Float, nullable=False)
+#    newbalanceDest = db.Column(db.Float, nullable=False)
+#    isFraud = db.Column(db.Integer, nullable=False)
+#    def __repr__(self):
+#        return f"transactions(step = {step}, type = {type}, amount = {amount},nameOrig = {nameOrig},oldbalanceOrig = {oldbalanceOrig},newbalanceOrig = {newbalanceOrig},nameDest = {nameDest},oldbalanceDest = {oldbalanceDest},newbalanceDest = {newbalanceDest},isFraud = {isFraud})"
 
-db.create_all()
+#db.create_all()
+
+df=pd.read_csv("reduced_transactions_train.csv")
+
+df.to_sql('transactions',con=db.engine, if_exists='append',index=False)
+
+
 
 import pandas as pd 
 import numpy as np 
