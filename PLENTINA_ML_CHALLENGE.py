@@ -14,7 +14,7 @@ db = SQLAlchemy(app)
 class transactions(db.Model):
     step = db.Column(db.Integer, nullable=False)
     type = db.Column(db.String, nullable=False)
-    amount = db.Column(db.Floaat, nullable=False)
+    amount = db.Column(db.Float, nullable=False)
     nameOrig = db.Column(db.String, nullable=False)
     oldbalanceOrig = db.Column(db.Float, nullable=False)
     newbalanceOrig = db.Column(db.Float, nullable=False)
