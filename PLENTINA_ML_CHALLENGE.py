@@ -13,7 +13,7 @@ db = SQLAlchemy(app)
 #db.create_all()
 
 class transactions(db.Model):
-    step = db.Column(db.Integer, nullable=False)
+    step = db.Column(db.Integer,primary_key=True,nullable=False)
     type = db.Column(db.String, nullable=False)
     amount = db.Column(db.Float, nullable=False)
     nameOrig = db.Column(db.String, nullable=False)
