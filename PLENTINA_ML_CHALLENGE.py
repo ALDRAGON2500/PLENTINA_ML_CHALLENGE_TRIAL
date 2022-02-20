@@ -27,9 +27,6 @@ db = SQLAlchemy(app)
 
 #db.create_all()
 
-df=pd.read_csv("reduced_transactions_train.csv")
-
-df.to_sql('transactions',con=db.engine, if_exists='append',index=False)
 
 
 
@@ -40,6 +37,10 @@ from sklearn.preprocessing import OneHotEncoder
 from sklearn.pipeline import Pipeline
 from catboost import CatBoostClassifier
 from pickle import load
+
+df=pd.read_csv("reduced_transactions_train.csv")
+
+df.to_sql('transactions',con=db.engine, if_exists='append',index=False)
 
 #Fraud Detection Model: load fraud detection Model 
 model=load(open("gbdtmodel.pkl",'rb'))
