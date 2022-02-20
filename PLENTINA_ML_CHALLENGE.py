@@ -10,23 +10,23 @@ api=Api(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://eoaanmphxbnuvp:f74035ddab268012f0e500dac515b0f749947c4261384285179ea3ea1abcc2ea@ec2-3-212-143-188.compute-1.amazonaws.com:5432/d4apbo7o7ts7rg'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
-db.create_all()
-
-#class transactions(db.Model):
-#    step = db.Column(db.Integer, nullable=False)
-#    type = db.Column(db.String, nullable=False)
-#    amount = db.Column(db.Float, nullable=False)
-#    nameOrig = db.Column(db.String, nullable=False)
-#    oldbalanceOrig = db.Column(db.Float, nullable=False)
-#    newbalanceOrig = db.Column(db.Float, nullable=False)
-#    nameDest = db.Column(db.String, nullable=False)
-#    oldbalanceDest = db.Column(db.Float, nullable=False)
-#    newbalanceDest = db.Column(db.Float, nullable=False)
-#    isFraud = db.Column(db.Integer, nullable=False)
-#    def __repr__(self):
-#        return f"transactions(step = {step}, type = {type}, amount = {amount},nameOrig = {nameOrig},oldbalanceOrig = {oldbalanceOrig},newbalanceOrig = {newbalanceOrig},nameDest = {nameDest},oldbalanceDest = {oldbalanceDest},newbalanceDest = {newbalanceDest},isFraud = {isFraud})"
-
 #db.create_all()
+
+class transactions(db.Model):
+    step = db.Column(db.Integer, nullable=False)
+    type = db.Column(db.String, nullable=False)
+    amount = db.Column(db.Float, nullable=False)
+    nameOrig = db.Column(db.String, nullable=False)
+    oldbalanceOrig = db.Column(db.Float, nullable=False)
+    newbalanceOrig = db.Column(db.Float, nullable=False)
+    nameDest = db.Column(db.String, nullable=False)
+    oldbalanceDest = db.Column(db.Float, nullable=False)
+    newbalanceDest = db.Column(db.Float, nullable=False)
+    isFraud = db.Column(db.Integer, nullable=False)
+    def __repr__(self):
+        return f"transactions(step = {step}, type = {type}, amount = {amount},nameOrig = {nameOrig},oldbalanceOrig = {oldbalanceOrig},newbalanceOrig = {newbalanceOrig},nameDest = {nameDest},oldbalanceDest = {oldbalanceDest},newbalanceDest = {newbalanceDest},isFraud = {isFraud})"
+
+db.create_all()
 
 
 
