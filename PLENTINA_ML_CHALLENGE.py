@@ -134,11 +134,11 @@ def fraud_detection():
     
     query=f"""SELECT*
           FROM transactions 
-          WHERE step = {params['step']} AND
-          amount = {params['amount']} AND
-          type = '{params['type']}' AND 
-          nameOrig = '{params['nameOrig']}' AND 
-          nameDest = '{params['nameDest']}' 
+          WHERE transactions.step = {params['step']} AND
+          transactions.amount = {params['amount']} AND
+          transactions.type = '{params['type']}' AND 
+          transactions.nameOrig = '{params['nameOrig']}' AND 
+          transactions.nameDest = '{params['nameDest']}' 
           """
     result=pd.read_sql_query(query,con=db.engine)
     
