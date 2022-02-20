@@ -12,19 +12,19 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 #db.create_all()
 
-class transactions(db.Model):
-    step = db.Column(db.Integer,primary_key=True,nullable=False)
-    type = db.Column(db.String, nullable=False)
-    amount = db.Column(db.Float, nullable=False)
-    nameOrig = db.Column(db.String, nullable=False)
-    oldbalanceOrig = db.Column(db.Float, nullable=False)
-    newbalanceOrig = db.Column(db.Float, nullable=False)
-    nameDest = db.Column(db.String, nullable=False)
-    oldbalanceDest = db.Column(db.Float, nullable=False)
-    newbalanceDest = db.Column(db.Float, nullable=False)
-    isFraud = db.Column(db.Integer, nullable=False)
-    def __repr__(self):
-        return f"transactions(step = {step}, type = {type}, amount = {amount},nameOrig = {nameOrig},oldbalanceOrig = {oldbalanceOrig},newbalanceOrig = {newbalanceOrig},nameDest = {nameDest},oldbalanceDest = {oldbalanceDest},newbalanceDest = {newbalanceDest},isFraud = {isFraud})"
+#class transactions(db.Model):
+#    step = db.Column(db.Integer,primary_key=True,nullable=False)
+#    type = db.Column(db.String, nullable=False)
+#    amount = db.Column(db.Float, nullable=False)
+#    nameOrig = db.Column(db.String, nullable=False)
+#    oldbalanceOrig = db.Column(db.Float, nullable=False)
+#    newbalanceOrig = db.Column(db.Float, nullable=False)
+#    nameDest = db.Column(db.String, nullable=False)
+#    oldbalanceDest = db.Column(db.Float, nullable=False)
+#    newbalanceDest = db.Column(db.Float, nullable=False)
+#    isFraud = db.Column(db.Integer, nullable=False)
+#    def __repr__(self):
+#        return f"transactions(step = {step}, type = {type}, amount = {amount},nameOrig = {nameOrig},oldbalanceOrig = {oldbalanceOrig},newbalanceOrig = {newbalanceOrig},nameDest = {nameDest},oldbalanceDest = {oldbalanceDest},newbalanceDest = {newbalanceDest},isFraud = {isFraud})"
 
 db.create_all()
 
